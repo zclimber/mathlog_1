@@ -32,8 +32,8 @@ public class Main {
     public static void main(String[] args) {
         InputStream is = null;
         PrintStream ps = null;
-        String[] args2 = {"good6.in"};
-        args = args2;
+//        String[] args2 = {"good6.in"};
+//        args = args2;
         if (args.length == 0) {
             System.err.println("Reading from stdin");
             is = System.in;
@@ -46,9 +46,10 @@ public class Main {
                 System.exit(-1);
             }
         }
-        if (args.length <= 1) {
+        if(args.length <= 1){
             ps = System.out;
         } else {
+            System.err.println("Writing to " + args[1]);
             try {
                 ps = new PrintStream(Files.newOutputStream(Paths.get(args[1])));
             } catch (IOException e) {
